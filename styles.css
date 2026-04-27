@@ -1,0 +1,1125 @@
+/* ============================================================
+   CONTINENTAL SAGA - Modern Netflix-Style Streaming UI
+   Production-ready CSS with vanilla JS interactivity
+   ============================================================ */
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #0b0b0b;
+    color: #e5e5e5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+}
+
+/* ============================================================
+   STICKY HEADER
+   ============================================================ */
+
+.sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(180deg, rgba(11, 11, 11, 0.95) 0%, rgba(11, 11, 11, 0.8) 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.header-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #fff;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+.netflix-logo {
+    height: 82px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-right: 16px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+}
+
+.icon-btn:hover {
+    color: #e50914;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.profile-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e50914, #831010);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #fff;
+    font-size: 14px;
+}
+
+.profile-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    object-fit: contain;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.profile-icon:hover {
+    transform: scale(1.1);
+}
+
+/* ============================================================
+   CONTENT NAVIGATION TABS
+   ============================================================ */
+
+.content-nav {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(180deg, rgba(11, 11, 11, 0.95) 0%, rgba(11, 11, 11, 0.7) 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 900;
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-tab {
+    background: none;
+    border: none;
+    color: #b3b3b3;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    padding: 8px 0;
+    position: relative;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+}
+
+.nav-tab:hover {
+    color: #fff;
+}
+
+.nav-tab.active {
+    color: #fff;
+}
+
+.nav-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #e50914;
+    border-radius: 2px;
+}
+
+/* ============================================================
+   HERO PREVIEW - Looping GIF Background with Overlay
+   ============================================================ */
+
+.hero-preview {
+    margin-top: 110px;
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.hero-gif-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hero-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.preview-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(11, 11, 11, 0.7) 0%,
+        rgba(11, 11, 11, 0.3) 40%,
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+/* Preview Content Overlay */
+.preview-content {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 60px;
+    gap: 24px;
+    height: 100%;
+}
+
+.preview-logo {
+    max-width: 260px;
+    padding-right: 110px;
+    padding-top: 60px;
+    animation: slideIn 0.6s ease 0.1s both;
+}
+
+.preview-logo img {
+    width: 260%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.75));
+}
+
+.preview-description {
+    animation: slideUp 0.6s ease 0.1s both;
+}
+
+.preview-description p {
+    font-size: 16px;
+    color: #b3b3b3;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.btn-watch-now {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 36px;
+    background: #e50914;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 6px 20px rgba(229, 9, 20, 0.4);
+    transition: all 0.3s ease;
+    animation: slideUp 0.6s ease 0.2s both;
+}
+
+.btn-watch-now:hover {
+    background: #ff2e2e;
+    box-shadow: 0 8px 28px rgba(229, 9, 20, 0.6);
+    transform: translateY(-2px);
+}
+
+.btn-watch-now:active {
+    transform: translateY(0);
+}
+
+/* Preview Player Controls */
+.preview-controls {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+.control-corner {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.control-corner:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.control-corner:active {
+    transform: scale(0.95);
+}
+
+/* ============================================================
+   MAIN CONTENT CONTAINER
+   ============================================================ */
+
+.content-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================================
+   VIDEO PLAYER SECTION
+   ============================================================ */
+
+.player-section {
+    margin-bottom: 40px;
+}
+
+.player-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    background: #000;
+}
+
+/* Loading Shimmer Animation */
+@keyframes shimmer {
+    0% {
+        background: linear-gradient(90deg, #222 0%, #333 50%, #222 100%);
+        background-size: 200% 100%;
+        background-position: 200% 0;
+    }
+    100% {
+        background: linear-gradient(90deg, #222 0%, #333 50%, #222 100%);
+        background-size: 200% 100%;
+        background-position: -200% 0;
+    }
+}
+
+.player-shimmer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: shimmer 2s infinite;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Custom Player Wrapper */
+.custom-player {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #000;
+}
+
+.video-element {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Player Overlay (Controls) */
+.player-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.3),
+        transparent,
+        rgba(0, 0, 0, 0.5)
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.custom-player:hover .player-overlay {
+    opacity: 1;
+}
+
+.overlay-gradient {
+    pointer-events: none;
+}
+
+.top-gradient {
+    height: 80px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), transparent);
+}
+
+.bottom-gradient {
+    height: 140px;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.9));
+}
+
+/* Big Center Play Button */
+.play-button-big {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 11;
+}
+
+.play-button-big:hover {
+    background: rgba(229, 9, 20, 0.8);
+    border-color: #e50914;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.play-button-big.hidden {
+    display: none;
+}
+
+/* Player Controls */
+.player-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 12px 12px 12px;
+}
+
+/* Progress Bar */
+.progress-bar-container {
+    width: 100%;
+    padding: 8px 0;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+    transition: height 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.progress-bar:hover {
+    height: 6px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #e50914, #ff4444);
+    border-radius: 2px;
+    position: relative;
+    transition: width 0.1s linear;
+}
+
+.progress-handle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.2s ease;
+}
+
+.progress-bar:hover .progress-handle {
+    opacity: 1;
+}
+
+/* Controls Row */
+.controls-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.controls-left,
+.controls-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    opacity: 0.9;
+}
+
+.control-btn:hover {
+    opacity: 1;
+    color: #e50914;
+}
+
+.volume-slider {
+    width: 0;
+    opacity: 0;
+    transition: all 0.2s ease;
+    overflow: hidden;
+}
+
+.controls-left:hover .volume-slider {
+    width: 80px;
+    opacity: 1;
+    padding: 0 8px;
+}
+
+.volume-slider input {
+    width: 100%;
+    height: 3px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    outline: none;
+}
+
+.volume-slider input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.volume-slider input::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.time-display {
+    font-size: 12px;
+    opacity: 0.9;
+    min-width: 70px;
+    text-align: right;
+}
+
+/* Keyboard Hints */
+.keyboard-hints {
+    position: absolute;
+    bottom: 60px;
+    right: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 11px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px 12px;
+    border-radius: 6px;
+    pointer-events: none;
+}
+
+.player-overlay:hover .keyboard-hints {
+    opacity: 0.7;
+}
+
+.keyboard-hints span {
+    color: #ccc;
+}
+
+/* ============================================================
+   METADATA SECTION
+   ============================================================ */
+
+.metadata-section {
+    margin-bottom: 60px;
+    padding: 40px 0;
+}
+
+.info-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: #999;
+}
+
+.badge-duration {
+    padding: 4px 10px;
+    background: rgba(229, 9, 20, 0.2);
+    border: 1px solid rgba(229, 9, 20, 0.5);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #ff6b6b;
+}
+
+.info-divider {
+    color: #555;
+}
+
+.info-item {
+    color: #b3b3b3;
+}
+
+.btn-add-list {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    color: #e5e5e5;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-add-list:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(229, 9, 20, 0.5);
+}
+
+.info-description {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #b3b3b3;
+    margin: 20px 0;
+    max-width: 700px;
+}
+
+/* Tags Section */
+.tags-section {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.tag {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(229, 9, 20, 0.15);
+    border: 1px solid rgba(229, 9, 20, 0.4);
+    border-radius: 20px;
+    font-size: 13px;
+    color: #ff6b6b;
+    transition: all 0.2s ease;
+    cursor: default;
+}
+
+.tag:hover {
+    background: rgba(229, 9, 20, 0.3);
+    border-color: #e50914;
+}
+
+/* ============================================================
+   CAST SECTION
+   ============================================================ */
+
+.cast-section {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cast-scroll-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+}
+
+.cast-scroll-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.cast-scroll-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.cast-scroll-container::-webkit-scrollbar-thumb {
+    background: rgba(229, 9, 20, 0.6);
+    border-radius: 3px;
+}
+
+.cast-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #e50914;
+}
+
+.cast-row {
+    display: flex;
+    gap: 20px;
+    min-width: min-content;
+    padding: 10px 0;
+}
+
+.cast-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    min-width: 140px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.cast-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(229, 9, 20, 0.5);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+.cast-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(229, 9, 20, 0.3);
+    transition: all 0.3s ease;
+}
+
+.cast-card:hover .cast-avatar {
+    border-color: #e50914;
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
+}
+
+.cast-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.cast-role {
+    font-size: 12px;
+    color: #999;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .sticky-header {
+        padding: 0 16px;
+    }
+
+    .logo {
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+
+    .nav-icons {
+        gap: 12px;
+        padding-right: 12px;
+    }
+
+    .icon-btn {
+        padding: 6px;
+    }
+
+    .icon-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .content-nav {
+        height: 45px;
+    }
+
+    .nav-container {
+        padding: 0 16px;
+        gap: 20px;
+    }
+
+    .nav-tab {
+        font-size: 13px;
+    }
+
+    .hero-preview {
+        margin-top: 105px;
+        height: 400px;
+    }
+
+    .hero-section {
+        height: 380px;
+    }
+
+    .hero-content {
+        padding: 0 30px 60px 30px;
+    }
+
+    .hero-title {
+        font-size: 48px;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .hero-buttons {
+        gap: 10px;
+    }
+
+    .btn-hero {
+        padding: 10px 24px;
+        font-size: 13px;
+    }
+
+    .content-container {
+        padding: 0 16px;
+    }
+
+    .player-section {
+        margin-bottom: 30px;
+    }
+
+    .info-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .info-description {
+        font-size: 14px;
+        max-width: 100%;
+    }
+
+    .tags-section {
+        gap: 8px;
+    }
+
+    .tag {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .section-title {
+        font-size: 20px;
+        letter-spacing: 0.5px;
+    }
+
+    .cast-row {
+        gap: 12px;
+    }
+
+    .cast-card {
+        min-width: 120px;
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .cast-avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .cast-name {
+        font-size: 13px;
+    }
+
+    .cast-role {
+        font-size: 11px;
+    }
+
+    .control-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .btn-add-list {
+        padding: 6px 14px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sticky-header {
+        height: 56px;
+        padding: 0 12px;
+    }
+
+    .logo {
+        font-size: 14px;
+        letter-spacing: 1.5px;
+    }
+
+    .nav-icons {
+        gap: 10px;
+    }
+
+    .content-nav {
+        height: 40px;
+        top: 56px;
+    }
+
+    .nav-container {
+        padding: 0 12px;
+        gap: 16px;
+    }
+
+    .nav-tab {
+        font-size: 12px;
+    }
+
+    .hero-preview {
+        margin-top: 96px;
+        height: 350px;
+    }
+
+    .hero-section {
+        height: 300px;
+    }
+
+    .hero-content {
+        padding: 0 16px 40px 16px;
+    }
+
+    .hero-title {
+        font-size: 36px;
+        letter-spacing: 1px;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .hero-buttons {
+        gap: 8px;
+    }
+
+    .btn-hero {
+        padding: 8px 18px;
+        font-size: 12px;
+        flex: 1;
+    }
+
+    .btn-hero svg {
+        display: none;
+    }
+
+    .content-container {
+        padding: 0 12px;
+    }
+
+    .player-container {
+        aspect-ratio: 16 / 9;
+    }
+
+    .info-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .info-description {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .time-display {
+        font-size: 10px;
+        min-width: 60px;
+    }
+
+    .controls-row {
+        gap: 6px;
+    }
+
+    .control-btn {
+        padding: 4px;
+    }
+
+    .cast-card {
+        min-width: 100px;
+        padding: 10px;
+    }
+
+    .cast-avatar {
+        width: 70px;
+        height: 70px;
+    }
+
+    .btn-add-list {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+}
+
+/* ============================================================
+   UTILITY & ANIMATION CLASSES
+   ============================================================ */
+
+.fade-in {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.slide-up {
+    animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Smooth transitions */
+button,
+a {
+    transition: all 0.2s ease;
+}
+
+svg {
+    transition: all 0.2s ease;
+}
