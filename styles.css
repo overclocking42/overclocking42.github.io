@@ -377,6 +377,7 @@ body {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
+    min-height: 300px;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 60px rgba(229, 9, 20, 0.1);
@@ -985,6 +986,27 @@ body {
         margin-bottom: 30px;
     }
 
+    .player-container {
+        aspect-ratio: 16 / 9;
+        min-height: auto;
+        height: auto;
+    }
+
+    .custom-player {
+        min-height: 300px;
+        height: auto;
+    }
+
+    .google-drive-player-wrapper {
+        min-height: 300px;
+        height: auto;
+    }
+
+    .google-drive-iframe {
+        min-height: 300px;
+        height: auto;
+    }
+
     .metadata-section {
         padding: 30px 0;
     }
@@ -1143,6 +1165,24 @@ body {
 
     .player-container {
         border-radius: 8px;
+        aspect-ratio: 16 / 9;
+        min-height: auto;
+        height: auto;
+    }
+
+    .custom-player {
+        min-height: 200px;
+        height: auto;
+    }
+
+    .google-drive-player-wrapper {
+        min-height: 200px;
+        height: auto;
+    }
+
+    .google-drive-iframe {
+        min-height: 200px;
+        height: auto;
     }
 
     .metadata-section {
@@ -1311,6 +1351,32 @@ body {
 
     .content-container {
         padding: 0 10px;
+    }
+
+    .player-section {
+        margin-bottom: 20px;
+    }
+
+    .player-container {
+        border-radius: 6px;
+        aspect-ratio: 16 / 9;
+        min-height: auto;
+        height: auto;
+    }
+
+    .custom-player {
+        min-height: 180px;
+        height: auto;
+    }
+
+    .google-drive-player-wrapper {
+        min-height: 180px;
+        height: auto;
+    }
+
+    .google-drive-iframe {
+        min-height: 180px;
+        height: auto;
     }
 
     .metadata-section {
