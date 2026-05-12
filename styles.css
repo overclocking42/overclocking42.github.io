@@ -38,6 +38,7 @@ body {
     display: flex;
     align-items: center;
     padding: 0 20px;
+    transition: height 0.3s ease, padding 0.3s ease;
 }
 
 .header-container {
@@ -84,6 +85,9 @@ body {
     justify-content: center;
     transition: all 0.2s ease;
     border-radius: 4px;
+    min-width: 44px;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .icon-btn:hover {
@@ -155,10 +159,12 @@ body {
     align-items: center;
     gap: 8px;
     transition: all 0.3s ease;
-    padding: 8px 0;
+    padding: 12px 0;
     position: relative;
     text-transform: capitalize;
     letter-spacing: 0.5px;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .nav-tab:hover {
@@ -226,6 +232,27 @@ body {
     pointer-events: none;
 }
 
+@media (max-width: 768px) {
+    .preview-gradient {
+        background: linear-gradient(
+            90deg,
+            rgba(11, 11, 11, 0.8) 0%,
+            rgba(11, 11, 11, 0.5) 50%,
+            rgba(11, 11, 11, 0.2) 100%
+        );
+    }
+}
+
+@media (max-width: 600px) {
+    .preview-gradient {
+        background: linear-gradient(
+            180deg,
+            rgba(11, 11, 11, 0.3) 0%,
+            rgba(11, 11, 11, 0.7) 100%
+        );
+    }
+}
+
 /* Preview Content Overlay */
 .preview-content {
     position: relative;
@@ -281,6 +308,8 @@ body {
     box-shadow: 0 6px 20px rgba(229, 9, 20, 0.4);
     transition: all 0.3s ease;
     animation: slideUp 0.6s ease 0.2s both;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .btn-watch-now:hover {
@@ -333,6 +362,7 @@ body {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
 }
 
 /* ============================================================
@@ -575,6 +605,9 @@ body {
     justify-content: center;
     transition: all 0.2s ease;
     opacity: 0.9;
+    min-width: 44px;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .control-btn:hover {
@@ -713,6 +746,8 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .btn-add-list:hover {
@@ -853,32 +888,47 @@ body {
    RESPONSIVE DESIGN
    ============================================================ */
 
+/* Large devices and up */
+@media (max-width: 1024px) {
+    .content-container {
+        max-width: 95%;
+    }
+}
+
+/* Tablets and medium devices */
 @media (max-width: 768px) {
     .sticky-header {
         padding: 0 16px;
+        height: 56px;
+    }
+
+    .netflix-logo {
+        height: 60px;
     }
 
     .logo {
-        font-size: 16px;
+        font-size: 14px;
         letter-spacing: 2px;
     }
 
     .nav-icons {
         gap: 12px;
-        padding-right: 12px;
+        padding-right: 8px;
     }
 
     .icon-btn {
-        padding: 6px;
+        padding: 8px;
+        min-width: 44px;
+        min-height: 44px;
     }
 
     .icon-btn svg {
-        width: 18px;
-        height: 18px;
+        width: 20px;
+        height: 20px;
     }
 
     .content-nav {
-        height: 45px;
+        height: 48px;
     }
 
     .nav-container {
@@ -888,67 +938,43 @@ body {
 
     .nav-tab {
         font-size: 13px;
+        padding: 12px 0;
     }
 
     .hero-preview {
-        margin-top: 105px;
-        height: 400px;
+        margin-top: 104px;
+        height: 420px;
     }
 
     .preview-content {
-        padding: 30px 20px;
+        padding: 30px 20px 40px;
         gap: 16px;
     }
 
     .preview-logo {
-        max-width: 180px;
+        max-width: 200px;
         padding-right: 0;
         padding-top: 0;
     }
 
     .preview-logo img {
         width: 100%;
-    }
-
-    .preview-description p {
-        font-size: 14px;
+        height: auto;
     }
 
     .preview-description h5 {
-        font-size: 16px !important;
+        font-size: 18px !important;
+        margin-bottom: 8px !important;
     }
 
-    .hero-section {
-        height: 380px;
+    .preview-description p {
+        font-size: 15px;
     }
 
-    .hero-content {
-        padding: 0 30px 60px 30px;
-    }
-
-    .hero-title {
-        font-size: 48px;
-        letter-spacing: 2px;
-        margin-bottom: 8px;
-    }
-
-    .hero-subtitle {
-        font-size: 16px;
-        margin-bottom: 12px;
-    }
-
-    .hero-description {
+    .btn-watch-now {
+        padding: 12px 32px;
         font-size: 14px;
-        margin-bottom: 20px;
-    }
-
-    .hero-buttons {
-        gap: 10px;
-    }
-
-    .btn-hero {
-        padding: 10px 24px;
-        font-size: 13px;
+        min-height: 44px;
     }
 
     .content-container {
@@ -959,14 +985,18 @@ body {
         margin-bottom: 30px;
     }
 
+    .metadata-section {
+        padding: 30px 0;
+    }
+
     .info-bar {
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
+        gap: 16px;
     }
 
     .info-description {
-        font-size: 14px;
+        font-size: 15px;
         max-width: 100%;
     }
 
@@ -975,28 +1005,213 @@ body {
     }
 
     .tag {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .section-title {
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+
+    .cast-row {
+        gap: 14px;
+    }
+
+    .cast-card {
+        min-width: 130px;
+        padding: 14px;
+        gap: 10px;
+    }
+
+    .cast-avatar {
+        width: 90px;
+        height: 90px;
+    }
+
+    .cast-name {
+        font-size: 14px;
+    }
+
+    .cast-role {
+        font-size: 12px;
+    }
+
+    .btn-add-list {
+        padding: 10px 18px;
+        font-size: 13px;
+        min-height: 44px;
+    }
+}
+
+/* Small devices */
+@media (max-width: 600px) {
+    * {
+        /* Better touch targets */
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .sticky-header {
+        height: 52px;
+        padding: 0 12px;
+    }
+
+    .netflix-logo {
+        height: 50px;
+    }
+
+    .logo {
+        font-size: 12px;
+        letter-spacing: 1.5px;
+    }
+
+    .nav-icons {
+        gap: 8px;
+    }
+
+    .icon-btn {
+        padding: 8px;
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .icon-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .content-nav {
+        height: 44px;
+        top: 52px;
+    }
+
+    .nav-container {
+        padding: 0 12px;
+        gap: 16px;
+    }
+
+    .nav-tab {
+        font-size: 12px;
+        padding: 10px 0;
+    }
+
+    .hero-preview {
+        margin-top: 96px;
+        height: 360px;
+    }
+
+    .preview-content {
+        padding: 24px 16px 32px;
+        gap: 14px;
+    }
+
+    .preview-logo {
+        max-width: 160px;
+    }
+
+    .preview-logo img {
+        width: 100%;
+    }
+
+    .preview-description {
+        animation: none;
+    }
+
+    .preview-description h5 {
+        font-size: 16px !important;
+        margin-bottom: 6px !important;
+    }
+
+    .preview-description p {
+        font-size: 14px;
+    }
+
+    .btn-watch-now {
+        padding: 11px 28px;
+        font-size: 13px;
+        min-height: 44px;
+        animation: none;
+    }
+
+    .content-container {
+        padding: 0 12px;
+    }
+
+    .player-section {
+        margin-bottom: 24px;
+    }
+
+    .player-container {
+        border-radius: 8px;
+    }
+
+    .metadata-section {
+        padding: 24px 0;
+        margin-bottom: 40px;
+    }
+
+    .info-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding-bottom: 16px;
+    }
+
+    .badge-duration {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+
+    .info-left {
+        font-size: 13px;
+        gap: 8px;
+    }
+
+    .info-item {
+        font-size: 13px;
+    }
+
+    .btn-add-list {
+        padding: 9px 16px;
+        font-size: 12px;
+        min-height: 44px;
+        width: 100%;
+    }
+
+    .info-description {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .tags-section {
+        gap: 6px;
+        margin: 16px 0;
+    }
+
+    .tag {
         padding: 6px 12px;
         font-size: 12px;
     }
 
     .section-title {
-        font-size: 20px;
-        letter-spacing: 0.5px;
+        font-size: 18px;
+        margin-bottom: 14px;
     }
 
     .cast-row {
-        gap: 12px;
+        gap: 10px;
+        padding: 10px 0;
     }
 
     .cast-card {
-        min-width: 120px;
-        padding: 12px;
-        gap: 10px;
+        min-width: 110px;
+        padding: 10px;
+        gap: 8px;
     }
 
     .cast-avatar {
-        width: 80px;
-        height: 80px;
+        width: 75px;
+        height: 75px;
     }
 
     .cast-name {
@@ -1007,129 +1222,116 @@ body {
         font-size: 11px;
     }
 
-    .control-btn svg {
-        width: 16px;
-        height: 16px;
+    .control-btn {
+        padding: 6px;
+        min-width: 36px;
+        min-height: 36px;
     }
 
-    .btn-add-list {
-        padding: 6px 14px;
-        font-size: 12px;
+    .control-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .time-display {
+        font-size: 11px;
+        min-width: 55px;
+    }
+
+    .controls-row {
+        gap: 4px;
+    }
+
+    .player-overlay {
+        opacity: 1;
+    }
+
+    .keyboard-hints {
+        display: none;
     }
 }
 
-@media (max-width: 480px) {
+/* Extra small devices */
+@media (max-width: 400px) {
     .sticky-header {
-        height: 56px;
-        padding: 0 12px;
+        height: 48px;
+        padding: 0 10px;
+    }
+
+    .netflix-logo {
+        height: 45px;
     }
 
     .logo {
-        font-size: 14px;
-        letter-spacing: 1.5px;
-    }
-
-    .nav-icons {
-        gap: 10px;
+        font-size: 11px;
     }
 
     .content-nav {
         height: 40px;
-        top: 56px;
+        top: 48px;
     }
 
     .nav-container {
-        padding: 0 12px;
-        gap: 16px;
+        padding: 0 10px;
+        gap: 12px;
     }
 
     .nav-tab {
-        font-size: 12px;
+        font-size: 11px;
+        gap: 4px;
     }
 
     .hero-preview {
-        margin-top: 96px;
-        height: 350px;
+        margin-top: 88px;
+        height: 300px;
     }
 
     .preview-content {
-        padding: 20px 16px;
+        padding: 16px 12px 24px;
         gap: 12px;
     }
 
     .preview-logo {
-        max-width: 150px;
-        padding-right: 0;
-        padding-top: 0;
-    }
-
-    .preview-logo img {
-        width: 100%;
-    }
-
-    .preview-description p {
-        font-size: 13px;
+        max-width: 130px;
     }
 
     .preview-description h5 {
-        font-size: 15px !important;
+        font-size: 14px !important;
         margin-bottom: 4px !important;
     }
 
-    .btn-watch-now {
-        padding: 10px 24px;
-        font-size: 13px;
-    }
-
-    .hero-section {
-        height: 300px;
-    }
-
-    .hero-content {
-        padding: 0 16px 40px 16px;
-    }
-
-    .hero-title {
-        font-size: 36px;
-        letter-spacing: 1px;
-    }
-
-    .hero-subtitle {
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
-
-    .hero-description {
-        font-size: 13px;
-        line-height: 1.6;
-    }
-
-    .hero-buttons {
-        gap: 8px;
-    }
-
-    .btn-hero {
-        padding: 8px 18px;
+    .preview-description p {
         font-size: 12px;
-        flex: 1;
     }
 
-    .btn-hero svg {
-        display: none;
+    .btn-watch-now {
+        padding: 9px 20px;
+        font-size: 12px;
     }
 
     .content-container {
-        padding: 0 12px;
+        padding: 0 10px;
     }
 
-    .player-container {
-        aspect-ratio: 16 / 9;
+    .metadata-section {
+        padding: 16px 0;
     }
 
     .info-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+        gap: 8px;
+    }
+
+    .badge-duration {
+        font-size: 10px;
+    }
+
+    .info-left {
+        font-size: 12px;
+    }
+
+    .btn-add-list {
+        padding: 8px 12px;
+        font-size: 11px;
     }
 
     .info-description {
@@ -1137,32 +1339,33 @@ body {
         line-height: 1.6;
     }
 
-    .time-display {
-        font-size: 10px;
-        min-width: 60px;
+    .tag {
+        padding: 5px 10px;
+        font-size: 11px;
     }
 
-    .controls-row {
-        gap: 6px;
-    }
-
-    .control-btn {
-        padding: 4px;
+    .section-title {
+        font-size: 16px;
+        margin-bottom: 12px;
     }
 
     .cast-card {
-        min-width: 100px;
-        padding: 10px;
+        min-width: 95px;
+        padding: 8px;
+        gap: 6px;
     }
 
     .cast-avatar {
-        width: 70px;
-        height: 70px;
+        width: 65px;
+        height: 65px;
     }
 
-    .btn-add-list {
-        padding: 6px 12px;
-        font-size: 11px;
+    .cast-name {
+        font-size: 12px;
+    }
+
+    .cast-role {
+        font-size: 10px;
     }
 }
 
