@@ -28,8 +28,6 @@ const castMembers = [
 document.addEventListener('DOMContentLoaded', () => {
     initializeCast();
     attachEventListeners();
-    removeShimmerAfterLoad();
-    setupMobilePlayerHandler();
 });
 
 // ============================================================
@@ -72,31 +70,6 @@ function initializeCast() {
 // ============================================================
 
 function attachEventListeners() {
-    const fullscreenBtn = document.getElementById('fullscreenBtn');
-    const playerContainer = document.querySelector('.player-container');
-    const playerOverlay = document.getElementById('playerOverlay');
-
-    // Fullscreen
-    if (fullscreenBtn && playerContainer) {
-        fullscreenBtn.addEventListener('click', () => toggleFullscreen(playerContainer));
-    }
-
-    // Keyboard Shortcuts
-    document.addEventListener('keydown', handleKeyboardShortcuts);
-
-    // Auto-hide overlay on idle
-    if (playerOverlay) {
-        let idleTimeout;
-        document.querySelector('.custom-player').addEventListener('mousemove', () => {
-            clearTimeout(idleTimeout);
-            playerOverlay.style.opacity = '1';
-            
-            idleTimeout = setTimeout(() => {
-                playerOverlay.style.opacity = '0';
-            }, 3000);
-        });
-    }
-
     // Add "My List" functionality
     const addListBtn = document.querySelector('.btn-add-list');
     if (addListBtn) {
@@ -108,90 +81,12 @@ function attachEventListeners() {
 }
 
 // ============================================================
-// MOBILE PLAYER HANDLER
-// ============================================================
-
-function setupMobilePlayerHandler() {
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    const playerContainer = document.querySelector('.player-container');
-    const customPlayer = document.querySelector('.custom-player');
-    
-    if (isMobile && playerContainer) {
-        // Make player container clickable on mobile
-        playerContainer.style.cursor = 'pointer';
-        playerContainer.style.touchAction = 'manipulation';
-        
-        // Create overlay with tap instruction for mobile
-        const tapOverlay = document.createElement('div');
-        tapOverlay.style.cssText = `
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 9;
-            border-radius: 8px;
-            pointer-events: none;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-            text-align: center;
-            padding: 20px;
-            transition: opacity 0.3s ease;
-        `;
-        tapOverlay.innerHTML = '📱 Tap to play fullscreen';
-        
-        if (customPlayer) {
-            customPlayer.parentElement.style.position = 'relative';
-            customPlayer.parentElement.appendChild(tapOverlay);
-        }
-        
-        // Handle click for fullscreen
-        playerContainer.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            toggleFullscreen(playerContainer);
-            if (tapOverlay) {
-                tapOverlay.style.opacity = '0';
-                tapOverlay.style.pointerEvents = 'none';
-            }
-        });
-        
-        // Add touch feedback
-        playerContainer.addEventListener('touchstart', () => {
-            playerContainer.style.opacity = '0.9';
-        });
-        
-        playerContainer.addEventListener('touchend', () => {
-            playerContainer.style.opacity = '1';
-        });
-        
-        // Hide overlay on fullscreen exit
-        document.addEventListener('fullscreenchange', () => {
-            if (!document.fullscreenElement && tapOverlay) {
-                tapOverlay.style.opacity = '1';
-                tapOverlay.style.pointerEvents = 'auto';
-            }
-        });
-        
-        // Improve iframe loading on mobile
-        const iframe = document.getElementById('mainVideo');
-        if (iframe) {
-            iframe.setAttribute('sandbox', 'allow-same-origin allow-scripts allow-popups allow-presentation allow-forms allow-autoplay allow-fullscreen');
-        }
-    }
-}
-
-// ============================================================
 // FULLSCREEN
 // ============================================================
 
-function toggleFullscreen(playerContainer) {
+function toggleFullscreen(element) {
     if (!document.fullscreenElement) {
-        playerContainer.requestFullscreen().catch(err => {
+        element.requestFullscreen().catch(err => {
             console.log(`Fullscreen request failed: ${err.message}`);
         });
     } else {
@@ -200,36 +95,8 @@ function toggleFullscreen(playerContainer) {
 }
 
 // ============================================================
-// KEYBOARD SHORTCUTS
-// ============================================================
-
-function handleKeyboardShortcuts(event) {
-    if (event.target.matches('input, textarea')) return;
-
-    switch (event.code) {
-        case 'KeyF':
-            event.preventDefault();
-            const playerContainer = document.querySelector('.player-container');
-            toggleFullscreen(playerContainer);
-            break;
-    }
-}
-
-// ============================================================
 // VISUAL EFFECTS
 // ============================================================
-
-function removeShimmerAfterLoad() {
-    const playerShimmer = document.querySelector('.player-shimmer');
-    setTimeout(() => {
-        if (playerShimmer) {
-            playerShimmer.style.opacity = '0';
-            setTimeout(() => {
-                playerShimmer.style.display = 'none';
-            }, 300);
-        }
-    }, 1500);
-}
 
 function showNotification(message) {
     const notification = document.createElement('div');

@@ -70,27 +70,14 @@
     <main class="content-container">
         <!-- Video Player Section -->
         <section class="player-section" id="playerSection">
-            <div class="player-container">
-                <!-- Loading Shimmer -->
-                <div class="player-shimmer"></div>
-
-                <!-- Custom Player Wrapper -->
-                <div class="custom-player">
-                    <!-- Google Drive Embed with Netflix-style Frame -->
-                    <div class="google-drive-player-wrapper">
-                        <iframe id="mainVideo"
-                                src="https://drive.google.com/file/d/1oup0qB8QyTRM3y0m3jda94S8lVVIPV0K/preview"
-                                width="100%"
-                                height="100%"
-                                frameborder="0"
-                                allow="autoplay; encrypted-media; fullscreen"
-                                allowfullscreen
-                                sandbox="allow-same-origin allow-scripts allow-popups allow-presentation allow-forms allow-autoplay"
-                                class="google-drive-iframe">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
+            <iframe id="mainVideo"
+                    src="https://drive.google.com/file/d/1oup0qB8QyTRM3y0m3jda94S8lVVIPV0K/preview"
+                    class="video-player"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media; fullscreen"
+                    allowfullscreen
+                    sandbox="allow-same-origin allow-scripts allow-popups allow-presentation allow-forms allow-autoplay allow-fullscreen">
+            </iframe>
         </section>
 
         <!-- Title & Metadata Section -->
