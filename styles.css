@@ -349,8 +349,16 @@ body {
     aspect-ratio: 16 / 9;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-    background: #000;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 60px rgba(229, 9, 20, 0.1);
+    background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+    border: 1px solid rgba(229, 9, 20, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    perspective: 1000px;
+}
+
+.player-container:hover {
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.98), 0 0 80px rgba(229, 9, 20, 0.15);
+    border-color: rgba(229, 9, 20, 0.3);
 }
 
 /* Loading Shimmer Animation */
@@ -385,6 +393,30 @@ body {
     width: 100%;
     height: 100%;
     background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Google Drive Player Wrapper */
+.google-drive-player-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.google-drive-iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
 }
 
 .video-element {
@@ -1175,3 +1207,34 @@ a {
 svg {
     transition: all 0.2s ease;
 }
+
+/* ============================================================
+   NETFLIX-STYLE PLAYER EFFECTS
+   ============================================================ */
+
+/* Player Glow Effect */
+@keyframes playerGlow {
+    0% {
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 60px rgba(229, 9, 20, 0.05);
+    }
+    50% {
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 80px rgba(229, 9, 20, 0.15);
+    }
+    100% {
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 60px rgba(229, 9, 20, 0.05);
+    }
+}
+
+.player-container {
+    animation: playerGlow 3s ease-in-out infinite;
+}
+
+/* Smooth Glass Effect Border */
+.player-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;\n    background: linear-gradient(135deg, rgba(229, 9, 20, 0.1) 0%, transparent 50%, rgba(229, 9, 20, 0.05) 100%);\n    pointer-events: none;\n    z-index: 5;\n}\n\n/* Player Section Enhanced Styling */\n.player-section {\n    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(10, 10, 10, 0.95) 100%);\n    position: relative;\n    overflow: hidden;\n}\n\n.player-section::before {\n    content: '';\n    position: absolute;\n    top: -50%;\n    right: -10%;\n    width: 600px;\n    height: 600px;\n    background: radial-gradient(circle, rgba(229, 9, 20, 0.08) 0%, transparent 70%);\n    border-radius: 50%;\n    pointer-events: none;\n    z-index: 1;\n}\n\n.player-section::after {\n    content: '';\n    position: absolute;\n    bottom: -50%;\n    left: -10%;\n    width: 600px;\n    height: 600px;\n    background: radial-gradient(circle, rgba(229, 9, 20, 0.08) 0%, transparent 70%);\n    border-radius: 50%;\n    pointer-events: none;\n    z-index: 1;\n}\n\n/* Ensure content sits above the background effects */\n.player-container {\n    position: relative;\n    z-index: 10;\n}\n\n/* Dark overlay for better contrast */\n.player-section {\n    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);\n}\n\n/* Hover scale animation for player container */\n@keyframes playerHoverScale {\n    to {\n        transform: scale(1.02);\n    }\n}\n\n.player-container {\n    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n.player-section:hover .player-container {\n    animation: playerHoverScale 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;\n}

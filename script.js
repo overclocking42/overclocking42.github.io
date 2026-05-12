@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeCast();
     attachEventListeners();
     removeShimmerAfterLoad();
-    setupPlayerPoster();
 });
 
 // ============================================================
@@ -44,29 +43,8 @@ function scrollToPlayer() {
 }
 
 // ============================================================
-// PLAYER POSTER SETUP
+// PLAYER POSTER SETUP - Removed (using Google Drive's native controls)
 // ============================================================
-
-function setupPlayerPoster() {
-    const playerPoster = document.getElementById('playerPoster');
-    const playerContainer = document.querySelector('.custom-player');
-    
-    if (playerPoster && playerContainer) {
-        // Hide poster on click
-        playerContainer.addEventListener('click', () => {
-            playerPoster.style.opacity = '0';
-            playerPoster.style.pointerEvents = 'none';
-        }, { once: true });
-        
-        // Also hide poster after a delay to account for autoplay
-        setTimeout(() => {
-            if (playerPoster && playerPoster.style.opacity !== '0') {
-                playerPoster.style.opacity = '0';
-                playerPoster.style.pointerEvents = 'none';
-            }
-        }, 1000);
-    }
-}
 
 function initializeCast() {
     const castRow = document.getElementById('castRow');
