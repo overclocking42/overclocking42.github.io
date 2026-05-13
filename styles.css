@@ -373,6 +373,16 @@ body {
     margin-bottom: 40px;
     width: 100%;
     max-width: 100%;
+    padding: 0;
+    position: relative;
+    overflow: visible;
+}
+
+.player-wrapper {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
 }
 
 .video-player {
@@ -383,6 +393,8 @@ body {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
     border: none;
     display: block;
+    overflow: hidden;
+    touch-action: manipulation;
 }
 
 .video-element {
@@ -871,10 +883,11 @@ body {
 
     .player-section {
         margin-bottom: 30px;
+        padding: 0 8px;
     }
 
     .video-player {
-        min-height: 250px;
+        aspect-ratio: 16 / 9;
     }
 
     .metadata-section {
@@ -970,10 +983,11 @@ body {
 
     .player-section {
         margin-bottom: 24px;
+        padding: 0 6px;
     }
 
     .video-player {
-        min-height: 220px;
+        aspect-ratio: 16 / 9;
         border-radius: 8px;
     }
 
@@ -1076,10 +1090,11 @@ body {
 
     .player-section {
         margin-bottom: 20px;
+        padding: 0 4px;
     }
 
     .video-player {
-        min-height: 200px;
+        aspect-ratio: 16 / 9;
         border-radius: 6px;
     }
 
