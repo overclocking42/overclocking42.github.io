@@ -4,154 +4,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONTINENTAL SAGA</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="netflix_732228.png">
+    <title>Under Maintenance</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #141414;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Sticky Header -->
-    <header class="sticky-header">
-        <div class="header-container">
-            <div class="logo">
-                <img src="Netflix-Logo.png" alt="Netflix" class="netflix-logo">
-            </div>
-            <nav class="nav-icons">
-                <button class="icon-btn profile-btn" title="Account">
-                    <img src="pro.jpg" alt="Profile" class="profile-icon">
-                </button>
-            </nav>
-        </div>
-    </header>
+    <h1>Under Maintenance</h1>
 
-    <!-- Navigation Tabs -->
-    <nav class="content-nav">
-        <div class="nav-container">
-            <button class="nav-tab active" data-section="home">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
-                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path>
-                </svg>
-                Home
-            </button>
-        </div>
-    </nav>
+    <template>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" type="image/png" href="netflix_732228.png">
 
-    <!-- Hero Section with Looping GIF -->
-    <section class="hero-preview">
-        <div class="hero-gif-container">
-            <video src="gif.mp4" muted autoplay loop playsinline class="hero-gif" preload="auto"></video>
-            <div class="preview-gradient"></div>
-        </div>
-
-        <!-- Content Overlay on GIF -->
-        <div class="preview-content">
-            <div class="preview-logo">
-                <img src="saga.png" alt="CONTINENTAL SAGA Logo">
-            </div>
-
-            <div class="preview-description">
-                <h5 style="margin-bottom: 5px; font-size: 18px; color: #fff;">Continental Saga: The Present and the Future</h5>
-                <p>An Elite Organization Beyond the Law</p>
-            </div>
-
-            <button class="btn-watch-now" onclick="scrollToPlayer()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z"></path>
-                </svg>
-                Watch Now
-            </button>
-        </div>
-
-
-    </section>
-
-    <!-- Main Content Container -->
-    <main class="content-container">
-        <!-- Video Player Section -->
-        <section class="player-section" id="playerSection">
-            <div class="player-wrapper">
-                <iframe id="mainVideo"
-                        src="https://drive.google.com/file/d/1oup0qB8QyTRM3y0m3jda94S8lVVIPV0K/preview"
-                        class="video-player"
-                        allow="autoplay"
-                        allowfullscreen
-                        frameborder="0">
-                </iframe>
-            </div>
-        </section>
-
-        <!-- Title & Metadata Section -->
-        <section class="metadata-section">
-            <div class="info-bar">
-                <div class="info-left">
-                    <span class="badge-duration">1h 14m</span>
-                    <span class="info-divider">•</span>
-                    <span class="info-item">Action • Adventure • Humor</span>
+        <header class="sticky-header">
+            <div class="header-container">
+                <div class="logo">
+                    <img src="Netflix-Logo.png" alt="Netflix" class="netflix-logo">
                 </div>
-                <button class="btn-add-list" title="Add to My List">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                <nav class="nav-icons">
+                    <button class="icon-btn profile-btn" title="Account">
+                        <img src="pro.jpg" alt="Profile" class="profile-icon">
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <nav class="content-nav">
+            <div class="nav-container">
+                <button class="nav-tab active" data-section="home">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path>
                     </svg>
-                    Add to My List
+                    Home
                 </button>
             </div>
+        </nav>
 
-            <p class="info-description">
-                <strong>Continental Saga: The Present and the Future</strong><br>
-                <span style="color: #ff6b6b; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 13px;">A Continental Universe Film</span><br><br>
-                In a world of shadows and intrigue, an elite organization operates beyond the reach of law. Follow the high-stakes adventures across continents as our protagonists navigates a dangerous underworld of assassins, spies, and hidden conspiracies. A cinematic masterpiece exploring loyalty, redemption and a tale of friendship.
-            </p>
-
-            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                <h3 style="color: #fff; margin-bottom: 16px; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Chapters</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px;">
-                    <div style="color: #b3b3b3; font-size: 14px;"><span style="color: #ff6b6b; font-weight: 600;">0:58</span> — The Call</div>
-                    <div style="color: #b3b3b3; font-size: 14px;"><span style="color: #ff6b6b; font-weight: 600;">24:46</span> — The Rendezvous</div>
-                    <div style="color: #b3b3b3; font-size: 14px;"><span style="color: #ff6b6b; font-weight: 600;">35:30</span> — The Wild Card</div>
-                    <div style="color: #b3b3b3; font-size: 14px;"><span style="color: #ff6b6b; font-weight: 600;">38:32</span> — Parting Of Friends</div>
-                    <div style="color: #b3b3b3; font-size: 14px;"><span style="color: #ff6b6b; font-weight: 600;">56:32</span> — Unbound Future</div>
-                    <div style="color: #b3b3b3; font-size: 14px;"><span style="color: #ff6b6b; font-weight: 600;">1:07:00</span> — The Reunion</div>
-                    <div style="color: #b3b3b3; font-size: 14px;"><span style="color: #ff6b6b; font-weight: 600;">1:10:26</span> — Post Credits</div>
-                </div>
+        <section class="hero-preview">
+            <div class="hero-gif-container">
+                <video src="gif.mp4" muted autoplay loop playsinline class="hero-gif" preload="auto"></video>
+                <div class="preview-gradient"></div>
             </div>
 
-            <!-- Tags / Chips -->
-            <div class="tags-section">
-                <span class="tag">Action</span>
-                <span class="tag">Adventure</span>
-                <span class="tag">Humor</span>
-                <span class="tag">Intense</span>
-                <span class="tag">Gripping</span>
-                <span class="tag">Spy</span>
-                <span class="tag">True Events</span>
-            </div>
-
-            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                <h3 style="color: #fff; margin-bottom: 16px; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Production Credits</h3>
-                <div style="color: #b3b3b3; font-size: 14px; line-height: 1.8;">
-                    <div><span style="color: #e5e5e5; font-weight: 600;">Written and Directed by:</span> MJ</div>
-                    <div style="margin-top: 12px;"><span style="color: #e5e5e5; font-weight: 600;">Support Editors:</span> Pookie</div>
+            <div class="preview-content">
+                <div class="preview-logo">
+                    <img src="saga.png" alt="CONTINENTAL SAGA Logo">
                 </div>
+
+                <div class="preview-description">
+                    <h5 style="margin-bottom: 5px; font-size: 18px; color: #fff;">Continental Saga: The Present and the Future</h5>
+                    <p>An Elite Organization Beyond the Law</p>
+                </div>
+
+                <button class="btn-watch-now" onclick="scrollToPlayer()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"></path>
+                    </svg>
+                    Watch Now
+                </button>
             </div>
         </section>
 
-        <!-- Cast & Crew Section -->
-        <section class="cast-section">
-            <h2 class="section-title">Cast</h2>
-            <div class="cast-scroll-container">
-                <div class="cast-row" id="castRow">
-                    <!-- Cast cards will be generated by JS -->
+        <main class="content-container">
+            <section class="player-section" id="playerSection">
+                <div class="player-wrapper">
+                    <iframe id="mainVideo"
+                            src="https://drive.google.com/file/d/1oup0qB8QyTRM3y0m3jda94S8lVVIPV0K/preview"
+                            class="video-player"
+                            allow="autoplay"
+                            allowfullscreen
+                            frameborder="0">
+                    </iframe>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Spacer -->
-        <div style="height: 100px;"></div>
-    </main>
+            <section class="metadata-section">
+                <div class="info-bar">
+                    <div class="info-left">
+                        <span class="badge-duration">1h 14m</span>
+                        <span class="info-divider">•</span>
+                        <span class="info-item">Action • Adventure • Humor</span>
+                    </div>
+                    <button class="btn-add-list" title="Add to My List">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Add to My List
+                    </button>
+                </div>
 
-    <script src="script.js"></script>
+                <p class="info-description">
+                    <strong>Continental Saga: The Present and the Future</strong><br>
+                    <span style="color: #ff6b6b; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 13px;">A Continental Universe Film</span><br><br>
+                    In a world of shadows and intrigue, an elite organization operates beyond the reach of law. Follow the high-stakes adventures across continents as our protagonists navigates a dangerous underworld of assassins, spies, and hidden conspiracies. A cinematic masterpiece exploring loyalty, redemption and a tale of friendship.
+                </p>
+
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                    <h3 style="color: #fff; margin-bottom: 16px; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Chapters</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px;">
+                        <div style="color: #b3b3b3; font-size: 14px;"><span style="color: #ff6b6b; font-weight: 600;">0:58</span> — The Call</div>
+                        <div style="color: #b3b3b3; font-size: 14px;"><span style="color: #ff6b6b; font-weight: 600;">24:46</span> — The Rendezvous</div>
+                        <div style="color: #b3b3b3; font-size: 14px;"><span style="color: #ff6b6b; font-weight: 600;">35:30</span> — The Wild Card</div>
+                        <div style="color: #b3b3b3; font-size: 14px;"><span style="color: #ff6b6b; font-weight: 600;">38:32</span> — Parting Of Friends</div>
+                        <div style="color: #b3b3b3; font-size: 14px;"><span style="color: #ff6b6b; font-weight: 600;">56:32</span> — Unbound Future</div>
+                        <div style="color: #b3b3b3; font-size: 14px;"><span style="color: #ff6b6b; font-weight: 600;">1:07:00</span> — The Reunion</div>
+                        <div style="color: #b3b3b3; font-size: 14px;"><span style="color: #ff6b6b; font-weight: 600;">1:10:26</span> — Post Credits</div>
+                    </div>
+                </div>
+
+                <div class="tags-section">
+                    <span class="tag">Action</span>
+                    <span class="tag">Adventure</span>
+                    <span class="tag">Humor</span>
+                    <span class="tag">Intense</span>
+                    <span class="tag">Gripping</span>
+                    <span class="tag">Spy</span>
+                    <span class="tag">True Events</span>
+                </div>
+
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                    <h3 style="color: #fff; margin-bottom: 16px; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Production Credits</h3>
+                    <div style="color: #b3b3b3; font-size: 14px; line-height: 1.8;">
+                        <div><span style="color: #e5e5e5; font-weight: 600;">Written and Directed by:</span> MJ</div>
+                        <div style="margin-top: 12px;"><span style="color: #e5e5e5; font-weight: 600;">Support Editors:</span> Pookie</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cast-section">
+                <h2 class="section-title">Cast</h2>
+                <div class="cast-scroll-container">
+                    <div class="cast-row" id="castRow"></div>
+                </div>
+            </section>
+
+            <div style="height: 100px;"></div>
+        </main>
+
+        <script src="script.js"></script>
+    </template>
+
 </body>
-
 </html>
